@@ -7,7 +7,7 @@ public class MirrorMove : MonoBehaviour
 
 	private void Update()
 	{
-		Collider2D[] mirrors = Physics2D.OverlapCircleAll(transform.position, detectionSphereRadius);
+		Collider2D[] mirrors = Physics2D.OverlapCircleAll(transform.position, detectionSphereRadius, detectionMask);
 
 		if (mirrors != null)
 		{
