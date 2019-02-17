@@ -1,56 +1,53 @@
-﻿using UnityEngine;
-[RequireComponent(typeof(LineRenderer))]
+﻿using UnityEditor;
+using UnityEngine;
+
+/*
+ * Projectile reflection demonstration in Unity 3D
+ * 
+ * Demonstrates a projectile reflecting in 3D space a variable number of times.
+ * Reflections are calculated using Raycast's and Vector3.Reflect
+ * 
+ * Developed on World of Zero: https://youtu.be/GttdLYKEJAM
+ */
 public class MirrorReflect : MonoBehaviour
 {
-	//the attached line renderer
-	private LineRenderer lineRenderer;
+	public int maxReflectionCount = 5;
+	public float maxStepDistance = 200;
 
-	//the number of reflections
-	public int nReflections = 2;
-	//max length
-	public float maxLength = 100f;
-
-	//private int pointCount;
-	void Awake()
+	void OnDrawGizmos()
 	{
-		//get the attached LineRenderer component  
-		lineRenderer = GetComponent<LineRenderer>();
+		Handles.color = Color.red;
+		Handles.ArrowHandleCap(0, this.transform.position + this.transform.right, this.transform.rotation, 0.5f, EventType.Repaint);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+
+		DrawPredictedReflectionPattern(this.transform.position + this.transform.right, this.transform.right, maxReflectionCount);
 	}
-	void Update()
+
+	private void DrawPredictedReflectionPattern(Vector2 position, Vector2 direction, int reflectionsRemaining)
 	{
-		//clamp the number of reflections between 1 and int capacity  
-		nReflections = Mathf.Clamp(nReflections, 1, nReflections);
-
-		Ray2D ray = new Ray2D(transform.position, transform.right);
-
-		//start with just the origin
-		lineRenderer.positionCount = 1;
-		lineRenderer.SetPosition(0, transform.position);
-		float remainingLength = maxLength;
-		//bounce up to n times
-		for (int i = 0; i < nReflections; i++)
+		if (reflectionsRemaining == 0)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, remainingLength);
-			// ray cast
-			if (hit.collider != null)
-			{
-				//we hit, update line renderer
-				lineRenderer.positionCount += 1;
-				lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
-				// update remaining length and set up ray for next loop
-				remainingLength -= Vector3.Distance(ray.origin, hit.point);
-				ray = new Ray2D(hit.point, Vector3.Reflect(ray.direction, hit.normal));
-				// break loop if we don't hit a Mirror
-				if (hit.collider.tag != "Mirror")
-					break;
-			}
-			else
-			{
-				// We didn't hit anything, draw line to end of ramainingLength
-				lineRenderer.positionCount += 1;
-				lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + ray.direction * remainingLength);
-				break;
-			}
+			return;
 		}
+
+		Vector2 startingPosition = position;
+
+		Ray ray = new Ray(position, direction);
+		RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+		if (hit)
+		{
+			direction = Vector3.Reflect(direction, hit.normal);
+			position = hit.point;
+		}
+		else
+		{
+			position += direction * maxStepDistance;
+		}
+
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawLine(startingPosition, position);
+
+		DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
 	}
 }
