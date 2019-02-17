@@ -18,9 +18,6 @@ public class MirrorReflect : MonoBehaviour
 	}
 	void Update()
 	{
-		//clamp the number of reflections between 1 and int capacity  
-		nReflections = Mathf.Clamp(nReflections, 1, nReflections);
-
 		Ray2D ray = new Ray2D(transform.position, transform.right);
 
 		//start with just the origin
