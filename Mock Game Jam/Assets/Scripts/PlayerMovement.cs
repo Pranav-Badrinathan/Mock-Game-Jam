@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private float speed;
 
+	public  static Vector3 mirrorLocation;
+	
 	private void Update()
 	{
 		//Set Speed
@@ -25,5 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
 		//Apply Input
 		transform.position += new Vector3(xMove, yMove);
+
+		//Setup variable for MirrorMove
+		if (xMove > 0)
+			mirrorLocation = Vector3.right;
+		else if (xMove < 0)
+			mirrorLocation = -Vector3.right;
+		else if (yMove > 0)
+			mirrorLocation = Vector3.up;
+		else if (yMove < 0)
+			mirrorLocation = -Vector3.up;
+		else if (xMove > 0 && yMove > 0)
+			mirrorLocation = Vector3.right + Vector3.up;
+		else if (xMove < 0 && yMove < 0)
+			mirrorLocation = -Vector3.right - Vector3.up;
+		else if (xMove > 0 && yMove < 0)
+			mirrorLocation = Vector3.right - Vector3.up;
+		else if (xMove < 0 && yMove > 0)
+			mirrorLocation = -Vector3.right + Vector3.up;
 	}
 }

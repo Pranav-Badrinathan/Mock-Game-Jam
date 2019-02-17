@@ -34,7 +34,7 @@ public class MirrorReflect : MonoBehaviour
 		Vector2 startingPosition = position;
 		Ray2D ray = new Ray2D(transform.position, transform.right);
 
-		Ray ray = new Ray(position, direction);
+		ray = new Ray2D(position, direction);
 		RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 		if (hit)
 		{
