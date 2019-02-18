@@ -6,7 +6,8 @@ public class MirrorMove : MonoBehaviour
 	public LayerMask detectionMask;
 
 	private Transform mirrorTransform = null;
-	private bool holdingMirror;
+	private short holdingMirrorState = -1;
+	private bool turning;
 
 	private void OnDrawGizmos()
 	{
@@ -19,29 +20,45 @@ public class MirrorMove : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.E))
 		{
 			mirrorTransform = GetMirror();
-
-			if (mirrorTransform != null && !holdingMirror)
+			if (mirrorTransform != null)
 			{
-				//Set mirror's location and rotation
-				mirrorTransform.rotation = transform.rotation;
-				mirrorTransform.position = transform.position + (PlayerMovement.mirrorLocation * 0.5f);
+				if (holdingMirrorState == -1)
+				{
+					//Set mirror's location and rotation
+					mirrorTransform.rotation = Quaternion.Euler(PlayerMovement.eulers);
+					mirrorTransform.position = transform.position + (PlayerMovement.mirrorLocation * 0.5f);
 
-				//update holding Mirror
-				holdingMirror = true;
+					//update holding Mirror
+					holdingMirrorState = 0;
+				}
+				else if (holdingMirrorState == 1)
+				{
+					mirrorTransform = null;
+					PlayerMovement.canMove = true;
+					turning = false;
 
-				Debug.Log("in");
-			}
-			else if (mirrorTransform != null && holdingMirror)
-			{
-				mirrorTransform = null;
-				holdingMirror = false;
+					holdingMirrorState = -1;
+				}
+				else if (holdingMirrorState == 0)
+				{
+					holdingMirrorState = 1;
+					turning = true;
+				}
 			}
 		}
 
-		if (mirrorTransform != null)
+		if (turning)
+		{
+			PlayerMovement.canMove = false;
+			FaceMirror(mirrorTransform);
+		}
+
+		if (mirrorTransform != null && holdingMirrorState == 0)
 		{
 			//Set mirror's location and rotation
-			mirrorTransform.rotation = transform.rotation;
+			mirrorTransform.rotation = Quaternion.Euler(PlayerMovement.eulers);
+
+			Debug.Log(PlayerMovement.eulers);
 			mirrorTransform.position = transform.position + (PlayerMovement.mirrorLocation * 0.5f);
 		}
 	}
@@ -52,14 +69,21 @@ public class MirrorMove : MonoBehaviour
 
 		if (mirrors.Length > 0)
 		{
-			Debug.Log("returning");
 			return GetClosestMirror(mirrors);
 		}
 		else
 		{
-			Debug.Log("null?");
 			return null;
 		}
+	}
+
+	private void FaceMirror(Transform target)
+	{
+		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+
+		target.RotateAround(transform.position, transform.forward, Input.GetAxis("Mouse X") * 10);
 	}
 
 	private Transform GetClosestMirror(Collider2D[] mirrors)
