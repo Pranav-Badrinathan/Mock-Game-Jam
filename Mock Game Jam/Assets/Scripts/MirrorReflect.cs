@@ -1,14 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-/*
- * Projectile reflection demonstration in Unity 3D
- * 
- * Demonstrates a projectile reflecting in 3D space a variable number of times.
- * Reflections are calculated using Raycast's and Vector3.Reflect
- * 
- * Developed on World of Zero: https://youtu.be/GttdLYKEJAM
- */
 public class MirrorReflect : MonoBehaviour
 {
 	public int maxReflectionCount = 5;
