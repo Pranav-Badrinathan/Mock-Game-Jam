@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private float speed;
 
-	public static Vector3 mirrorLocation;
-	public static Vector3 eulers;
-
 	public static bool canMove = true;
 
 	private void FixedUpdate()
@@ -35,47 +32,9 @@ public class PlayerMovement : MonoBehaviour
 			//Apply Input
 			transform.Translate(new Vector3(xMove, yMove), Space.World);
 
-			//Setup variable for MirrorMove
-			if (xMove > 0)
-			{
-				mirrorLocation = transform.right;
-				eulers.z = 0;
-			}
-			else if (xMove < 0)
-			{
-				mirrorLocation = -transform.right;
-				eulers.z = 180;
-			}
-			else if (yMove > 0)
-			{
-				mirrorLocation = transform.up;
-				eulers.z = 90;
-			}
-			else if (yMove < 0)
-			{
-				mirrorLocation = -transform.up;
-				eulers.z = 270;
-			}
-			else if (xMove > 0 && yMove > 0)
-			{
-				mirrorLocation = transform.right + transform.up;
-			}
-			else if (xMove < 0 && yMove < 0)
-			{
-				mirrorLocation = -transform.right - transform.up;
-			}
-			else if (xMove > 0 && yMove < 0)
-			{
-				mirrorLocation = transform.right - transform.up;
-			}
-			else if (xMove < 0 && yMove > 0)
-			{
-				mirrorLocation = -transform.right + transform.up;
-			}
+			//Rotate camera to face the cursor
+			RotateToCursor();
 		}
-
-		//Rotate camera to face the cursor
-		RotateToCursor();
 	}
 
 	private void RotateToCursor()
