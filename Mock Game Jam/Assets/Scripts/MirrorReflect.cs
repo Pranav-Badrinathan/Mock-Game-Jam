@@ -21,46 +21,40 @@ public class MirrorReflect : MonoBehaviour
 
 	private void DrawReflection()
 	{
-		/*
-        public int laserDistance = 100; //max raycasting distance
-        public int laserLimit = 10; //the laser can be reflected this many times
-        public LineRenderer laserRenderer; //the line renderer
-        */
-
-		int laserReflected = 1; //How many times it got reflected
+		int reflections = 1; //How many times it got reflected
 		int vertexCounter = 1; //How many line segments are there
 		bool loopActive = true; //Is the reflecting loop active?
-		Vector2 laserDirection = transform.up; //direction of the next laser
-		Vector2 lastLaserPosition = transform.position; //origin of the next laser
+		Vector2 lineDirection = transform.right; //direction of the next laser
+		Vector2 lastLinePosition = transform.position; //origin of the next laser
 
 		lineRenderer.positionCount = 1;
 		lineRenderer.SetPosition(0, transform.position);
 
 		while (loopActive)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(lastLaserPosition, laserDirection, maxDistance);
+			RaycastHit2D hit = Physics2D.Raycast(lastLinePosition, lineDirection, maxDistance);
 
 			if (hit)
 			{
-				laserReflected++;
+				reflections++;
 				vertexCounter += 3;
 				lineRenderer.positionCount = vertexCounter;
-				lineRenderer.SetPosition(vertexCounter - 3, Vector3.MoveTowards(hit.point, lastLaserPosition, 0.01f));
+				lineRenderer.SetPosition(vertexCounter - 3, Vector3.MoveTowards(hit.point, lastLinePosition, 0.01f));
 				lineRenderer.SetPosition(vertexCounter - 2, hit.point);
 				lineRenderer.SetPosition(vertexCounter - 1, hit.point);
-				lastLaserPosition = hit.point;
-				laserDirection = Vector3.Reflect(laserDirection, hit.normal);
+				lastLinePosition = hit.point;
+				lineDirection = Vector3.Reflect(lineDirection, hit.normal);
 			}
 			else
 			{
-				laserReflected++;
+				reflections++;
 				vertexCounter++;
 				lineRenderer.positionCount = vertexCounter;
-				lineRenderer.SetPosition(vertexCounter - 1, lastLaserPosition + (laserDirection.normalized * maxDistance));
+				lineRenderer.SetPosition(vertexCounter - 1, lastLinePosition + (lineDirection.normalized * maxDistance));
 
 				loopActive = false;
 			}
-			if (laserReflected > maxReflectionCount)
+			if (reflections > maxReflectionCount)
 				loopActive = false;
 		}
 	}
