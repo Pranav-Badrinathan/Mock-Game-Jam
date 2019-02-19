@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxReflectionCount: 7
   maxDistance: 200
+  tag: Mirror
 --- !u!1 &1439560725
 GameObject:
   m_ObjectHideFlags: 0

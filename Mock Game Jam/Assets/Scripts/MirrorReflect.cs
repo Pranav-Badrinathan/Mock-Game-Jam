@@ -9,6 +9,8 @@ public class MirrorReflect : MonoBehaviour
 
 	private LineRenderer lineRenderer;
 
+	public new string tag;
+
 	private void Awake()
 	{
 		lineRenderer = GetComponent<LineRenderer>();
@@ -44,6 +46,11 @@ public class MirrorReflect : MonoBehaviour
 				lineRenderer.SetPosition(vertexCounter - 1, hit.point);
 				lastLinePosition = hit.point;
 				lineDirection = Vector3.Reflect(lineDirection, hit.normal);
+
+				if (hit.collider.gameObject.tag != tag)
+				{
+					break;
+				}
 			}
 			else
 			{
