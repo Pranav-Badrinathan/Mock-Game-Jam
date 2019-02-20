@@ -2,7 +2,11 @@
 
 public class MirrorMove : MonoBehaviour
 {
+	[Range(0, 2)]
 	public float detectionSphereRadius;
+
+	[Range(0, 2)]
+	public float mirrorOffset;
 	public LayerMask detectionMask;
 
 	private Transform mirrorTransform = null;
@@ -25,8 +29,8 @@ public class MirrorMove : MonoBehaviour
 				if (holdingMirrorState == -1)
 				{
 					//Set mirror's location and rotation
-					mirrorTransform.rotation = transform.rotation;
-					mirrorTransform.position = transform.position + (transform.right * 0.5f);
+					mirrorTransform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 90);
+					mirrorTransform.position = transform.position + (transform.up * mirrorOffset);
 
 					//transform.up = Vector3.up;
 					mirrorTransform.parent = transform;
@@ -79,7 +83,7 @@ public class MirrorMove : MonoBehaviour
 
 		Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
 
-		target.up = direction;
+		target.right = direction;
 	}
 
 	private Transform GetClosestMirror(Collider2D[] mirrors)
