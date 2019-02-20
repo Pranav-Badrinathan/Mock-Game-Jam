@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: ec46b68fbc7f18c4584c44146172cc22
+guid: d56029dc0dffd2b43b2bdf0de8d6c15c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Top Left Corner
-    21300002: Top Side
-    21300004: Top Right Corner
-    21300006: Left Side
-    21300008: Centre
-    21300010: Right Side
-    21300012: Bottom Left Corner
-    21300014: Bottom Side
-    21300016: Bottom Right Corner
+    21300000: Light
+    21300002: Reciever_off
+    21300004: Reciever_on
+    21300006: Side Wall
+    21300008: Mirror
+    21300010: Side Wall Joint
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -93,181 +90,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Top Left Corner
+      name: Light
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
+        y: 26
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4322f21fb50cc204c8fc9d1be5d80e51
+      spriteID: 5fde9a9ab11c87b4e85647727b41c7cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top Side
+      name: Reciever_off
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 8
+        y: 14
+        width: 6
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbb5f41665e61bc4189b59b94d663f2a
+      spriteID: e2915a1bb513ef747b5d0d6df2893aa9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top Right Corner
+      name: Reciever_on
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
+        x: 18
+        y: 14
+        width: 6
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb0cf43bec24914fa685dbb914a717d
+      spriteID: 8230d5e12f5737f4f8572df9cfca3741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left Side
+      name: Side Wall
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5029844906b1ba841b3ad8acefedd40a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Centre
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 849bcf5b34a63dd4d8c3585b92526326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Right Side
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9e52b96c8bd9934e809db622d634ac8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bottom Left Corner
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 29
         y: 0
-        width: 32
+        width: 3
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8178cd138b436b74ebd80d85abe3486c
+      spriteID: ecf1db80ac18ca8429dca6d3e99fbfbf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bottom Side
+      name: Mirror
       rect:
         serializedVersion: 2
-        x: 32
+        x: 1
         y: 0
-        width: 32
-        height: 32
+        width: 4
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d63738f69eb0d347b3f7fa182593066
+      spriteID: 4962c615dfe8e304fb5a08fae69f84f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bottom Right Corner
+      name: Side Wall Joint
       rect:
         serializedVersion: 2
-        x: 64
+        x: 22
         y: 0
-        width: 32
-        height: 32
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c376920f30231004fade40b6219a5422
+      spriteID: dacc4cf13974cd047950c035801dbc72
       vertices: []
       indices: 
       edges: []
@@ -275,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e9782677ff25f1c41afa260e44fdb2ee
+    spriteID: 55dc592dc94104e4c8ca874187523e12
     vertices: []
     indices: 
     edges: []
