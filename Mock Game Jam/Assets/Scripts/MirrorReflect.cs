@@ -26,7 +26,7 @@ public class MirrorReflect : MonoBehaviour
 		int reflections = 1; //How many times it got reflected
 		int vertexCounter = 1; //How many line segments are there
 		bool loopActive = true; //Is the reflecting loop active?
-		Vector2 lineDirection = transform.right; //direction of the next laser
+		Vector2 lineDirection = -transform.right; //direction of the next laser
 		Vector2 lastLinePosition = transform.position; //origin of the next laser
 
 		lineRenderer.positionCount = 1;
