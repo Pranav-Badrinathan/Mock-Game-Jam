@@ -2,6 +2,7 @@
 
 public class MirrorMove : MonoBehaviour
 {
+	[Range(0, 2)]
 	public float detectionSphereRadius;
 
 	[Range(0, 2)]
