@@ -25,8 +25,11 @@ public class MirrorMove : MonoBehaviour
 				if (holdingMirrorState == -1)
 				{
 					//Set mirror's location and rotation
-					mirrorTransform.rotation = Quaternion.Euler(PlayerMovement.eulers);
-					mirrorTransform.position = transform.position + (PlayerMovement.mirrorLocation * 0.5f);
+					mirrorTransform.rotation = transform.rotation;
+					mirrorTransform.position = transform.position + (transform.right * 0.5f);
+
+					//transform.up = Vector3.up;
+					mirrorTransform.parent = transform;
 
 					//update holding Mirror
 					holdingMirrorState = 0;
@@ -43,6 +46,8 @@ public class MirrorMove : MonoBehaviour
 				{
 					holdingMirrorState = 1;
 					turning = true;
+
+					mirrorTransform.parent = null;
 				}
 			}
 		}
@@ -51,15 +56,6 @@ public class MirrorMove : MonoBehaviour
 		{
 			PlayerMovement.canMove = false;
 			FaceMirror(mirrorTransform);
-		}
-
-		if (mirrorTransform != null && holdingMirrorState == 0)
-		{
-			//Set mirror's location and rotation
-			mirrorTransform.rotation = Quaternion.Euler(PlayerMovement.eulers);
-
-			Debug.Log(PlayerMovement.eulers);
-			mirrorTransform.position = transform.position + (PlayerMovement.mirrorLocation * 0.5f);
 		}
 	}
 
@@ -83,7 +79,7 @@ public class MirrorMove : MonoBehaviour
 
 		Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
 
-		target.RotateAround(transform.position, transform.forward, Input.GetAxis("Mouse X") * 10);
+		target.up = direction;
 	}
 
 	private Transform GetClosestMirror(Collider2D[] mirrors)
@@ -98,7 +94,6 @@ public class MirrorMove : MonoBehaviour
 			Vector3 directionToTarget = mirror.transform.position - currentPosition;
 
 			float dSqrToTarget = directionToTarget.sqrMagnitude;
-			if (dSqrToTarget < closestDistanceSqr)
 			{
 				closestDistanceSqr = dSqrToTarget;
 				bestTarget = mirror.transform;
