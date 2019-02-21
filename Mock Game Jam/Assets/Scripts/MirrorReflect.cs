@@ -49,13 +49,13 @@ public class MirrorReflect : MonoBehaviour
 				lastLinePosition = hit.point;
 				lineDirection = Vector3.Reflect(lineDirection, hit.normal);
 
-				if (hit.collider == recieverCollider)
-					recieverCollider.gameObject.GetComponent<Reciever>().Trigger(true);
-				else
-					recieverCollider.gameObject.GetComponent<Reciever>().Trigger(false);
-
 				if (hit.collider.gameObject.tag != tag)
 				{
+					if (hit.collider == recieverCollider)
+						recieverCollider.gameObject.GetComponent<Reciever>().Trigger(true);
+					else
+						recieverCollider.gameObject.GetComponent<Reciever>().Trigger(false);
+
 					break;
 				}
 			}

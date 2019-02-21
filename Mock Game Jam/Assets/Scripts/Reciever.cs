@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Reciever : MonoBehaviour
 {
 	public Sprite recieverOff;
 	public Sprite recieverOn;
 
-	public new Light light;
+	public Light bulbLight;
+	public Light roomLight;
 
 	public void Trigger(bool on)
 	{
 		ChangeSprite(on);
-		LightsOn();
+		LightsOn(on);
 	}
 
 	private void ChangeSprite(bool onOrOff)
@@ -21,8 +23,27 @@ public class Reciever : MonoBehaviour
 			gameObject.GetComponent<SpriteRenderer>().sprite = recieverOff;
 	}
 
-	private void LightsOn()
+	private void LightsOn(bool onOrOff)
 	{
-		//light.gameObject.SetActive(true);
+		bulbLight.gameObject.SetActive(onOrOff);
+
+		bool needCoroutine = true;
+
+		if (onOrOff && needCoroutine)
+		{
+			StartCoroutine(MainLightTurnOn());
+			needCoroutine = false;
+		}
+		else
+		{
+			roomLight.gameObject.SetActive(onOrOff);
+		}
+	}
+
+	private IEnumerator MainLightTurnOn()
+	{
+		yield return new WaitForSeconds(3.0f);
+		roomLight.gameObject.SetActive(true);
+		
 	}
 }
