@@ -15,6 +15,10 @@ TextureImporter:
     21300020: Side Wall Joint_2
     21300022: Side Wall Joint_1
     21300024: Reciever Guard
+    21300026: Side Wall Corner_3
+    21300028: Side Wall Corner_2
+    21300030: Side Wall Corner_1
+    21300032: Side Wall Corner
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -101,7 +105,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 90
+        y: 122
         width: 5
         height: 5
       alignment: 9
@@ -121,7 +125,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 78
+        y: 110
         width: 6
         height: 18
       alignment: 0
@@ -141,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 78
+        y: 110
         width: 6
         height: 18
       alignment: 0
@@ -161,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -181,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 64
+        y: 96
         width: 4
         height: 25
       alignment: 0
@@ -201,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -221,7 +225,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -241,7 +245,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -261,7 +265,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -281,7 +285,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -301,7 +305,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -321,7 +325,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -341,7 +345,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 64
+        y: 96
         width: 24
         height: 13
       alignment: 0
@@ -352,6 +356,86 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 548ab80a19a0580458ae96adc51df6b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side Wall Corner_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbbfa49a5c070743ad8f4621629cea7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side Wall Corner_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d09ab7c3c541e4294595bef678a94c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side Wall Corner_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57131b14cc1916a45a2a210b7dbd317c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side Wall Corner
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 95
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fa8bc89c9fbc34c842143092709ba0
       vertices: []
       indices: 
       edges: []
