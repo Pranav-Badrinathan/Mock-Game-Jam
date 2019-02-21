@@ -260,4 +260,5 @@ MonoBehaviour:
   maxReflectionCount: 15
   maxDistance: 5000
   tag: Mirror
-  recieverCollider: {fileID: 0}
+  recieverCollider: {fileID: 8970801482816363364, guid: e5396c9d27d578c4785f9753a40c2e0c,
+    type: 3}
