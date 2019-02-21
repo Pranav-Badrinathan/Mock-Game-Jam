@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
 			float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * speed;
 			float yMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * speed;
 
-			Debug.Log(xMove);
-
 			//Apply Input
 			transform.Translate(new Vector3(xMove, yMove), Space.World);
 
