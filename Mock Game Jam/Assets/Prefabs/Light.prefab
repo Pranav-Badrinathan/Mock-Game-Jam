@@ -190,3 +190,4 @@ MonoBehaviour:
   maxReflectionCount: 15
   maxDistance: 5000
   tag: Mirror
+  recieverCollider: {fileID: 0}

@@ -11,6 +11,8 @@ public class MirrorReflect : MonoBehaviour
 
 	public new string tag;
 
+	public Collider2D recieverCollider;
+
 	private void Awake()
 	{
 		lineRenderer = GetComponent<LineRenderer>();
@@ -46,6 +48,11 @@ public class MirrorReflect : MonoBehaviour
 				lineRenderer.SetPosition(vertexCounter - 1, hit.point);
 				lastLinePosition = hit.point;
 				lineDirection = Vector3.Reflect(lineDirection, hit.normal);
+
+				if (hit.collider == recieverCollider)
+					recieverCollider.gameObject.GetComponent<Reciever>().Trigger(true);
+				else
+					recieverCollider.gameObject.GetComponent<Reciever>().Trigger(false);
 
 				if (hit.collider.gameObject.tag != tag)
 				{
