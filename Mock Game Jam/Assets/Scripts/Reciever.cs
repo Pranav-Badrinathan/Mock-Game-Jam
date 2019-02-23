@@ -36,7 +36,8 @@ public class Reciever : MonoBehaviour
 		}
 		else
 		{
-			roomLight.gameObject.SetActive(onOrOff);
+			roomLight.gameObject.SetActive(false);
+			needCoroutine = true;
 		}
 	}
 
@@ -44,6 +45,11 @@ public class Reciever : MonoBehaviour
 	{
 		yield return new WaitForSeconds(3.0f);
 		roomLight.gameObject.SetActive(true);
-		
+		yield return new WaitForSeconds(2.0f);
+
+		if (roomLight.gameObject.activeSelf)
+		{
+			ChangeScene.LoadNextScene();
+		}
 	}
 }
