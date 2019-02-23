@@ -31,7 +31,7 @@ public class StartScreenLogic : MonoBehaviour
 
 	public void Play()
 	{
-		ChangeScene.LoadNextScene();
+		ChangeScene.LoadRespectiveScene();
 	}
 
 	public void Quit()

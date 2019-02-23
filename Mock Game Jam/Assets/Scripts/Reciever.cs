@@ -49,7 +49,7 @@ public class Reciever : MonoBehaviour
 
 		if (roomLight.gameObject.activeSelf)
 		{
-			ChangeScene.LoadNextScene();
+			ChangeScene.LoadRespectiveScene();
 		}
 	}
 }
