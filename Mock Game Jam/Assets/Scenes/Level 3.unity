@@ -7677,6 +7677,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5396c9d27d578c4785f9753a40c2e0c, type: 3}
+--- !u!61 &873023643 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8970801482816363364, guid: e5396c9d27d578c4785f9753a40c2e0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 873023642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &885794120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8002,6 +8008,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1498080303257828605, guid: f8a6331106d6fde458dd72f2f31c2d06,
+        type: 3}
+      propertyPath: recieverCollider
+      value: 
+      objectReference: {fileID: 873023643}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8a6331106d6fde458dd72f2f31c2d06, type: 3}
 --- !u!1001 &1942197833

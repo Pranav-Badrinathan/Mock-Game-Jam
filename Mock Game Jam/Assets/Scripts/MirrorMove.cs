@@ -9,6 +9,7 @@ public class MirrorMove : MonoBehaviour
 	public float mirrorOffset;
 	public LayerMask detectionMask;
 
+	private float sphereRadius = 0;
 	private Transform mirrorTransform = null;
 	private short holdingMirrorState = -1;
 	private bool turning;
@@ -26,6 +27,7 @@ public class MirrorMove : MonoBehaviour
 			mirrorTransform = GetMirror();
 			if (mirrorTransform != null)
 			{
+				
 				if (holdingMirrorState == -1)
 				{
 					//Set mirror's location and rotation
@@ -44,6 +46,8 @@ public class MirrorMove : MonoBehaviour
 					PlayerMovement.canMove = true;
 					turning = false;
 
+					detectionSphereRadius = sphereRadius;
+
 					holdingMirrorState = -1;
 				}
 				else if (holdingMirrorState == 0)
@@ -52,6 +56,9 @@ public class MirrorMove : MonoBehaviour
 					turning = true;
 
 					mirrorTransform.parent = null;
+
+					sphereRadius = detectionSphereRadius;
+					detectionSphereRadius = 5;
 				}
 			}
 		}
